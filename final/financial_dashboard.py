@@ -73,7 +73,7 @@ except:
 # Header with modern styling
 st.title("**Stock Market Dashboard**")
 st.markdown('<p class="sub-header">Professional market analysis and performance tracking</p>', unsafe_allow_html=True)
-st.markdown('<p class="sub-header">By group 4: Carolina Kogan, Ismail Guennoun, Jan Budzsiz and Alice Nodé-Langlois</p>', unsafe_allow_html=True)
+st.markdown('<p class="sub-header">By: Carolina Kogan, Ismail Guennoun, Jan Budzsiz and Alice Nodé-Langlois</p>', unsafe_allow_html=True)
 # Create a professional sidebar
 st.sidebar.markdown("""
 <div style="text-align: center; padding-bottom: 20px;">
