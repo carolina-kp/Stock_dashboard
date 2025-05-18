@@ -320,6 +320,21 @@ def calculate_metrics(stock_data):
 
 # Calculate metrics
 metrics, stock_data_with_metrics = calculate_metrics(stock_data.copy())
+def format_metric(value):
+    """Format metric values with appropriate precision and symbols"""
+    if value is None:
+        return "N/A"
+    elif isinstance(value, float):
+        if abs(value) < 0.01:
+            return f"{value:.4f}"
+        elif abs(value) < 1:
+            return f"{value:.2f}"
+        elif abs(value) < 1000000:
+            return f"{value:,.2f}"
+        else:
+            return f"{value / 1000000:,.2f}M"
+    else:
+        return str(value)
 
 # Reset index to make Date a column for the UI
 stock_data_reset = stock_data.reset_index()
@@ -989,20 +1004,3 @@ if len(stock_data_strategy) > 0:
 
         with col4:
             st.metric("Strategy Max Drawdown", f"{max_dd:.2f}%")
-
-
-def format_metric(value):
-    """Format metric values with appropriate precision and symbols"""
-    if value is None:
-        return "N/A"
-    elif isinstance(value, float):
-        if abs(value) < 0.01:
-            return f"{value:.4f}"
-        elif abs(value) < 1:
-            return f"{value:.2f}"
-        elif abs(value) < 1000000:
-            return f"{value:,.2f}"
-        else:
-            return f"{value / 1000000:,.2f}M"
-    else:
-        return str(value)
