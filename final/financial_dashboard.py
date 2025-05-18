@@ -130,15 +130,15 @@ else:
 
 # Input validation with improved styling
 if start_date > end_date:
-    st.sidebar.error("⚠️ Start date must be before end date")
+    st.sidebar.error("Start date must be before end date")
     st.stop()
 
 if start_date > date.today():
-    st.sidebar.error("⚠️ Start date must be before today")
+    st.sidebar.error("Start date must be before today")
     st.stop()
 
 if end_date > date.today():
-    st.sidebar.error("⚠️ End date must be before today")
+    st.sidebar.error("End date must be before today")
     st.stop()
 
 
@@ -550,7 +550,7 @@ st.markdown('<hr style="margin: 30px 0; border: 0; height: 1px; background: #eae
 # Advanced metrics section
 st.markdown("## Performance Analysis")
 
-tab1, tab2, tab3 = st.tabs(["📊 All Metrics", "📈 Returns Distribution", "📋 Historical Data"])
+tab1, tab2, tab3 = st.tabs(["All Metrics", "Returns Distribution", "Historical Data"])
 
 with tab1:
     # Organize metrics by category with improved styling
@@ -762,7 +762,7 @@ with tab3:
 
         # Add download button with improved styling
         st.download_button(
-            label="📥 Download Data as CSV",
+            label="Download Data as CSV",
             data=hist_data.to_csv().encode('utf-8'),
             file_name=f"{ticker_symbol}_stock_data.csv",
             mime="text/csv",
