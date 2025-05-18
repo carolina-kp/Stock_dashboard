@@ -121,6 +121,12 @@ with st.sidebar.expander("Display Options", expanded=True):
         ["Green/Red (Traditional)", "Blue/Orange (Colorblind-friendly)"],
         index=0
     )
+if color_scheme == "Green/Red (Traditional)":
+    up_color = "#00ab41"      # Green
+    down_color = "#e31937"    # Red
+else:
+    up_color = "#1f77b4"      # Blue
+    down_color = "#ff7f0e"    # Orange
 
 # Input validation with improved styling
 if start_date > end_date:
@@ -381,8 +387,8 @@ with col1:
             low=stock_data_reset['Low'],
             close=stock_data_reset['Close'],
             name='Price',
-            increasing_line_color='#00ab41',
-            decreasing_line_color='#e31937'
+            increasing_line_color=up_color,
+            decreasing_line_color=down_color
         )
     )
 
@@ -437,9 +443,10 @@ with col1:
         colors = []
         for i in range(len(stock_data_reset)):
             if i > 0 and stock_data_reset['Close'].iloc[i] > stock_data_reset['Close'].iloc[i - 1]:
-                colors.append('#00ab41')  # Green for up days
+                colors.append(up_color)
             else:
-                colors.append('#e31937')  # Red for down days
+                colors.append(down_color)
+
 
         vol_fig = go.Figure()
         vol_fig.add_trace(
